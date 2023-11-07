@@ -1,9 +1,12 @@
 {
+  "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@types/node": "^20.8.9",
@@ -22,5 +25,17 @@
     "semi": false,
     "tabWidth": 2,
     "trailingComma": "none"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "0.0.0-pr-24740-sha-c34bd874",
+    "@storybook/addon-interactions": "0.0.0-pr-24740-sha-c34bd874",
+    "@storybook/addon-links": "0.0.0-pr-24740-sha-c34bd874",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "0.0.0-pr-24740-sha-c34bd874",
+    "@storybook/nextjs-server": "0.0.0-pr-24740-sha-c34bd874",
+    "@storybook/react": "0.0.0-pr-24740-sha-c34bd874",
+    "@storybook/testing-library": "^0.2.2",
+    "storybook": "0.0.0-pr-24740-sha-c34bd874",
+    "vite": "^4.5.0"
   }
 }
