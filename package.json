@@ -3,7 +3,9 @@
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@types/node": "^20.8.9",
@@ -22,5 +24,16 @@
     "semi": false,
     "tabWidth": 2,
     "trailingComma": "none"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.0.0-alpha.3",
+    "@storybook/addon-interactions": "^8.0.0-alpha.3",
+    "@storybook/addon-links": "^8.0.0-alpha.3",
+    "@storybook/addon-onboarding": "^1.0.10",
+    "@storybook/blocks": "^8.0.0-alpha.3",
+    "@storybook/nextjs": "^8.0.0-alpha.3",
+    "@storybook/react": "^8.0.0-alpha.3",
+    "@storybook/test": "^8.0.0-alpha.3",
+    "storybook": "^8.0.0-alpha.3"
   }
 }
