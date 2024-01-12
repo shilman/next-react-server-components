@@ -5,7 +5,8 @@
     "build": "next build",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_d882581201358cb"
   },
   "dependencies": {
     "@types/node": "^20.8.9",
@@ -26,14 +27,26 @@
     "trailingComma": "none"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.3.1",
+    "@mswjs/data": "^0.16.1",
     "@storybook/addon-essentials": "^8.0.0-alpha.3",
     "@storybook/addon-interactions": "^8.0.0-alpha.3",
     "@storybook/addon-links": "^8.0.0-alpha.3",
-    "@storybook/addon-onboarding": "^1.0.10",
     "@storybook/blocks": "^8.0.0-alpha.3",
     "@storybook/nextjs": "^8.0.0-alpha.3",
     "@storybook/react": "^8.0.0-alpha.3",
     "@storybook/test": "^8.0.0-alpha.3",
+    "fishery": "^2.2.2",
+    "msw": "^2.0.11",
+    "msw-storybook-addon": "2.0.0--canary.122.06f0c92.0",
+    "react-children-utilities": "^2.9.0",
     "storybook": "^8.0.0-alpha.3"
-  }
+  },
+  "msw": {
+    "workerDirectory": "public"
+  },
+  "name": "",
+  "version": "",
+  "readme": "ERROR: No README data found!",
+  "_id": "@"
 }
