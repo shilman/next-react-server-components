@@ -1,6 +1,12 @@
-# Next.js App Router + React Server Components
+# Next.js App Router + React Server Components + Storybook
 
-Try the demo live here: [**next-rsc-hn.vercel.app**](https://next-rsc-hn.vercel.app).
+Create Storybook stories for key page states to the Vercel "Hacker Next" RSC demo.
+
+Try the original demo live here: [**next-rsc-hn.vercel.app**](https://next-rsc-hn.vercel.app).
+
+And the new storybook here: [**Storybook**](https://65977098b1fd8a145e3eb514-aicwtmzgpd.chromatic.com).
+
+Read the blog post here: [**storybook.js.org**](https://storybook.js.org/blog/build-a-nextjs-app-with-rsc-msw-storybook/)
 
 ## Introduction
 
@@ -14,6 +20,13 @@ This is a demo app of the Hacker News website clone, which shows Next.js App Rou
 2. `pnpm dev`
 
 Go to `localhost:3000`.
+
+### Developing in Storybook
+
+1. `pnpm install`
+2. `pnpm storybook`
+
+Go to `localhost:6006`.
 
 ### Deploy
 
