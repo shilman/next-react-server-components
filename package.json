@@ -3,7 +3,10 @@
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic"
   },
   "dependencies": {
     "@types/node": "^20.8.9",
@@ -22,5 +25,26 @@
     "semi": false,
     "tabWidth": 2,
     "trailingComma": "none"
-  }
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.3.1",
+    "@mswjs/data": "^0.16.1",
+    "@storybook/addon-essentials": "^8.0.0-alpha.11",
+    "@storybook/addon-interactions": "^8.0.0-alpha.11",
+    "@storybook/addon-links": "^8.0.0-alpha.11",
+    "@storybook/blocks": "^8.0.0-alpha.11",
+    "@storybook/nextjs": "^8.0.0-alpha.11",
+    "@storybook/react": "^8.0.0-alpha.11",
+    "@storybook/test": "^8.0.0-alpha.11",
+    "msw": "^2.0.11",
+    "msw-storybook-addon": "2.0.0--canary.122.06f0c92.0",
+    "storybook": "^8.0.0-alpha.11"
+  },
+  "msw": {
+    "workerDirectory": "public"
+  },
+  "name": "",
+  "version": "",
+  "readme": "ERROR: No README data found!",
+  "_id": "@"
 }

@@ -16,18 +16,24 @@ export const viewport = {
   themeColor: '#ffa52a'
 }
 
+export function Layout({ children }) {
+  return (
+    <main>
+      <Header />
+      <div className="page">
+        {children}
+        <Footer />
+        <SystemInfo />
+      </div>
+    </main>
+  );
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <main>
-          <Header />
-          <div className="page">
-            {children}
-            <Footer />
-            <SystemInfo />
-          </div>
-        </main>
+        <Layout>{children}</Layout>
       </body>
     </html>
   )
