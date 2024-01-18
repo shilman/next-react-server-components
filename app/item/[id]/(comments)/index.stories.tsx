@@ -5,7 +5,7 @@ import Layout from '../layout'
 import Item from './page'
 import ItemLoading from './loading'
 
-import { createPost, setup } from '../../../../lib/data.mock'
+import { createPost, reset } from '../../../../lib/data.mock'
 
 const meta = {
   title: 'app/Item',
@@ -30,7 +30,7 @@ export const Default: Story = {
         commentCount
       }
     }) => {
-      setup()
+      reset()
       createPost({ kidCount: commentCount, id })
     }
   ],

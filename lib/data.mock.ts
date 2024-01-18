@@ -24,9 +24,10 @@ export const db = factory({
   }
 })
 
-export const arr = (count: number) => Array(count).fill(0)
+export const range = (count: number) =>
+  Array.from({ length: count }, (x, i) => i)
 
-export const setup = (seed?: number) => {
+export const reset = (seed?: number) => {
   _id = 1
   faker.seed(seed ?? 123)
   return drop(db)
@@ -63,7 +64,7 @@ export const createComment = ({ depth, kidCount }: CommentOptions) => {
   }
 
   const n = kidCount ?? faker.number.int(3)
-  const kids = arr(n).map(() => createComment({ depth: depth - 1 }))
+  const kids = range(n).map(() => createComment({ depth: depth - 1 }))
   return db.item.create({ type: 'comment', kids })
 }
 
@@ -74,7 +75,7 @@ interface PostOptions extends Partial<Post> {
 export const createPost = ({ kidCount, ...rest }: PostOptions = {}) => {
   const start = _id
   const n = kidCount ?? faker.number.int(10)
-  const kids = arr(n).map(() => createComment({ depth: faker.number.int(3) }))
+  const kids = range(n).map(() => createComment({ depth: faker.number.int(3) }))
   const descendants = _id - start - 1
 
   return db.item.create({ type: 'post', ...rest, kids, descendants })

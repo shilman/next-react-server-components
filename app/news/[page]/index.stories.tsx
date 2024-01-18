@@ -1,47 +1,84 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { within, userEvent } from '@storybook/test'
+import { http, HttpResponse } from 'msw'
 
 import News from './page'
 import ErrorPage from '../../error'
-import { arr, createPost, setup } from '../../../lib/data.mock'
+import { range, createPost, reset } from '../../../lib/data.mock'
+
+// FIXME: Need help getting the types working @kasperpeulen
+const Wrapper = ({ params, postCount }: { params: any; postCount: number }) => (
+  <News params={params} />
+)
 
 const meta = {
   title: 'app/News',
-  component: News,
-  argTypes: { postCount: { control: { type: 'range', min: 1, max: 100 } } }
-} satisfies Meta<typeof News & { postCount: number }>
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Home: Story = {
-  loaders: [
-    ({ args: { postCount } }) => {
-      setup()
-      arr(postCount).map(() => createPost())
-    }
-  ],
+  component: Wrapper,
+  argTypes: { postCount: { control: { type: 'range', min: 1, max: 100 } } },
   args: {
     params: { page: 1 },
     postCount: 10
   }
+} satisfies Meta<typeof Wrapper>
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+// Note that after we set up MSW globally, our orginal story is broken
+export const Home: Story = {}
+
+export const Mocked: Story = {
+  ...Home,
+  parameters: {
+    msw: {
+      handlers: [
+        http.get(
+          'https://hacker-news.firebaseio.com/v0/topstories.json',
+          () => {
+            return HttpResponse.json([1])
+          }
+        ),
+        http.get('https://hacker-news.firebaseio.com/v0/item/1.json', () => {
+          return HttpResponse.json({
+            id: 1,
+            time: Date.now(),
+            user: 'shilman',
+            url: 'http://storybook.js.org',
+            title: 'Storybook + Next.js = ❤️',
+            score: 999
+          })
+        })
+      ]
+    }
+  }
 }
 
-export const Mocked = {
+export const MockedNew = {
+  ...Home,
   loaders: [
     () => {
-      setup()
+      reset()
       createPost({
+        id: -1,
         user: 'shilman',
         url: 'http://storybook.js.org',
         title: 'Storybook + Next.js = ❤️',
         score: 999
       })
     }
-  ],
+  ]
+}
+
+export const FullPage = {
   args: {
-    params: { page: 1 }
-  }
+    postCount: 30
+  },
+  loaders: [
+    ({ args: { postCount } }) => {
+      reset()
+      range(postCount).map(() => createPost())
+    }
+  ]
 }
 
 export const Upvoted: Story = {
@@ -56,7 +93,7 @@ export const Upvoted: Story = {
 export const Empty: Story = {
   loaders: [
     () => {
-      setup()
+      reset()
     }
   ],
   args: {
