@@ -4,7 +4,7 @@ Create Storybook stories for key page states to the Vercel "Hacker Next" RSC dem
 
 Try the original demo live here: [**next-rsc-hn.vercel.app**](https://next-rsc-hn.vercel.app).
 
-And the new storybook here: [**Storybook**](https://65977098b1fd8a145e3eb514-aicwtmzgpd.chromatic.com).
+And the new storybook here: [**chromatic.com**](https://65977098b1fd8a145e3eb514-aicwtmzgpd.chromatic.com).
 
 Read the blog post here: [**storybook.js.org**](https://storybook.js.org/blog/build-a-nextjs-app-with-rsc-msw-storybook/)
 
